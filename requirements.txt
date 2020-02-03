@@ -1,0 +1,3 @@
+ibm-watson==4.2.1
+
+ watson-developer-cloud==2.10.1
