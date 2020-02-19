@@ -3,7 +3,7 @@ from ibm_watson import VisualRecognitionV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 
-with open('mykey-elthon.json') as json_file:
+with open('mykey.json') as json_file:
     mykey = json.load(json_file)
 
 authenticator = IAMAuthenticator(mykey["key"])
