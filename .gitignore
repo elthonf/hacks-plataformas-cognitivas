@@ -50,6 +50,7 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
+watson/python/visual_recognition/mykey-elthon.json
 
 # Translations
 *.mo
