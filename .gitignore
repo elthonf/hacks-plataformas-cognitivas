@@ -128,3 +128,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+datasets/statistical/modelo01.joblib
+datasets/statistical/modelo02.joblib
