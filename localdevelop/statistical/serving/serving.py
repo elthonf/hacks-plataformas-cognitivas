@@ -44,27 +44,6 @@ def call_modelo01(request = request):
     return jsonify({'prediction': list(prediction),
                     'proba': list(predict_proba)})
 
-@app.route("/modelo02", methods=['POST'])
-def call_modelo02(request = request):
-    print(request.values)
-
-    json_ = request.json
-    campos = pd.DataFrame(json_)
-
-    if campos.shape[0] == 0:
-        return "Dados de chamada da API estão incorretos.", 400
-
-    for col in modelo02.independentcols:
-        if col not in campos.columns:
-            campos[col] = 0
-    x = campos[modelo01.independentcols]
-
-    prediction = modelo01.predict(x)
-
-    return jsonify({'prediction': list(prediction)})
-
-
-
 if __name__ == '__main__':
     modelo01 = joblib.load( '../../../datasets/statistical/modelo01.joblib')
     modelo02 = joblib.load( '../../../datasets/statistical/modelo02.joblib')

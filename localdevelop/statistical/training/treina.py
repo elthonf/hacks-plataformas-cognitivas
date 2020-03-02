@@ -9,12 +9,12 @@ if __name__ == "__main__":
     mydf = pd.read_csv('../../../datasets/statistical/BaseDefault01.csv')
 
     # Identifica no dataset as variáveis independentes e a variavel alvo
-    independentcols = ['renda', 'idade', 'etnia', 'sexo', 'casapropria', 'outrasrendas', 'estadocivil', 'escolaridade']
     targetcol = 'default'
-    x = mydf[independentcols]
     y = mydf[targetcol]
 
     # Cria o Classifier (modelo 1)
+    independentcols = ['renda', 'idade', 'etnia', 'sexo', 'casapropria', 'outrasrendas', 'estadocivil', 'escolaridade']
+    x = mydf[independentcols]
     clf = rfc()
     clf.fit(X=x, y=y)
     clf.independentcols = independentcols
@@ -26,6 +26,7 @@ if __name__ == "__main__":
 
     # Cria o Regressor (modelo 2)
     independentcols = ['renda', 'idade', 'sexo', 'casapropria', 'outrasrendas', 'estadocivil', 'escolaridade']
+    x = mydf[independentcols]
     rgs = rfr()
     rgs.fit(X=x, y=y)
     rgs.independentcols = independentcols
