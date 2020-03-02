@@ -1,19 +1,18 @@
+
 import requests
 import pandas as pd
-
 
 
 if __name__ == "__main__":
     # Carrega os dados
     mydf = pd.read_csv('../../../datasets/statistical/BaseUnknown03.csv')
 
-    # Filtra alguns para testes:
-    filtrados = mydf.sample(4)
+    mysample = mydf.sample(20).drop('nome', axis=1)
 
     # Prepara chamada
-    url = "http://localhost:8080/modelo01"
+    url = "http://127.0.0.1:1234/invocations" #Coloque aqui a porta escolhida
     headers = {'Content-Type': 'application/json'}
-    conteudo = filtrados.to_json()
+    conteudo = mysample.to_json( orient='split')
 
     #Chama API
     response = requests.request("POST", url, headers=headers, data=conteudo)

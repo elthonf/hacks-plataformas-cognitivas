@@ -131,3 +131,4 @@ dmypy.json
 
 datasets/statistical/modelo01.joblib
 datasets/statistical/modelo02.joblib
+mlruns
