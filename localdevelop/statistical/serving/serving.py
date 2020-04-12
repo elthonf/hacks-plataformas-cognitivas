@@ -41,8 +41,9 @@ def call_modelo01(request = request):
     prediction = modelo01.predict(x)
     predict_proba = modelo01.predict_proba(x)
 
-    return jsonify({'prediction': list(prediction),
-                    'proba': list(predict_proba)})
+    return app.response_class(response=json.dumps({'prediction': list(prediction),
+                                                   'proba': list(predict_proba)}, cls=NpEncoder),
+                              mimetype='application/json')
 
 if __name__ == '__main__':
     modelo01 = joblib.load( '../../../datasets/statistical/modelo01.joblib')
